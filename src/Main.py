@@ -1,5 +1,4 @@
 from fastapi import FastAPI, Path
-from config import spoonacular_api_key, spotify_api_key
 from config import spoonacular_api_key, spotify_api_key, spotify_api_secret
 from pydantic import BaseModel
 from requests import post, get
