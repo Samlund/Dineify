@@ -46,7 +46,7 @@ def format_recipe(recipe_data, cuisine: str, dish_type: str):
     }
 
 @app.get("/v1.0/recipes/{dish_type}/")
-async def get_main_course(cuisine: str, dish_type: str):
+async def get_recipe(cuisine: str, dish_type: str):
     if dish_type not in dish_type_mapping:
         raise HTTPException(status_code=400, detail="Invalid param. Only 'main', 'starter' or 'dessert' allowed")
     dish_type = dish_type_mapping[dish_type]
