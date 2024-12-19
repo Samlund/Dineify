@@ -1,4 +1,9 @@
 
+#cuisine_generator {
+    padding: 2.5rem;
+    text-align: center;
+}
+
 /*--------------------start drop down btn------------- */
 .dropbtn {
     background-color: gray;
