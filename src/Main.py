@@ -6,6 +6,12 @@ app = FastAPI()
 spoonacular_api_key = spoonacular_api_key
 spoonacular_url = "https://api.spoonacular.com/recipes/random"
 
+dish_type_mapping = {
+    "main": "main course",
+    "starter": "starter",
+    "dessert": "dessert",
+}
+
 async def fetch_recipe(cuisine: str, dish_type: str):
     params = {
         "apiKey": spoonacular_api_key,
@@ -39,23 +45,13 @@ def format_recipe(recipe_data, cuisine: str, dish_type: str):
         "summary": recipe["summary"],
     }
 
-@app.get("/v1.0/recipes/mainCourse/")
-async def get_main_course(cuisine: str):
-    dish_type = "main course"
-    recipe_data = await fetch_recipe(cuisine, dish_type)
-    return format_recipe(recipe_data, cuisine, dish_type)
+@app.get("/v1.0/recipes/{dish_type}/")
+async def get_main_course(cuisine: str, dish_type: str):
+    if dish_type not in dish_type_mapping:
+        raise HTTPException(status_code=400, detail="Invalid param. Only 'main', 'starter' or 'dessert' allowed")
+    dish_type = dish_type_mapping[dish_type]
 
-@app.get("/v1.0/recipes/starter/")
-async def get_starter(cuisine: str):
-    dish_type = "starter"
-    recipe_data = await fetch_recipe(cuisine, dish_type)
-    return format_recipe(recipe_data, cuisine, dish_type)
-
-
-@app.get("/v1.0/recipes/dessert/")
-async def get_dessert(cuisine: str):
-    dish_type = "dessert"
-    recipe_data = await fetch_recipe(cuisine, dish_type)
+    recipe_data = await fetch_recipe(cuisine.capitalize(), dish_type)
     return format_recipe(recipe_data, cuisine, dish_type)
 
 
