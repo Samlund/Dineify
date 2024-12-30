@@ -3,9 +3,7 @@ import random
 from fastapi import FastAPI, Path, HTTPException
 from pydantic_core.core_schema import none_schema
 
-from config import spoonacular_api_key, spotify_api_key, spotify_api_secret, temp_token
-from requests import post, get
-import asyncio
+from config import spoonacular_api_key, spotify_api_key, spotify_api_secret
 import base64
 import httpx
 
