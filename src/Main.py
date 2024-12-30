@@ -1,7 +1,7 @@
 from typing import Annotated
 from config import spoonacular_api_key, spotify_api_key, spotify_api_secret
 
-from fastapi import FastAPI, HTTPException, Query, Path,
+from fastapi import FastAPI, HTTPException, Query, Path
 from src.config import spoonacular_api_key
 from pydantic_core.core_schema import none_schema
 import httpx
