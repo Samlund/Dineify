@@ -1,5 +1,5 @@
 from typing import Annotated
-from src.config import spoonacular_api_key, spotify_api_key, spotify_api_secret
+from config import spoonacular_api_key, spotify_api_key, spotify_api_secret
 
 from fastapi import FastAPI, HTTPException, Query
 import httpx
