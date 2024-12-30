@@ -102,7 +102,6 @@ async def set_token():
     token_url = "https://accounts.spotify.com/api/token"
     async with httpx.AsyncClient() as client:
         response = await client.post(token_url, headers = header, data = body)
-        print("Response access token: " + response.json()["access_token"])
         return response.json()["access_token"]
 
 async def get_playlist(theme : str):
