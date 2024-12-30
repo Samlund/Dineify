@@ -1,16 +1,11 @@
 from typing import Annotated
-from config import spoonacular_api_key, spotify_api_key, spotify_api_secret
+from src.config import spoonacular_api_key, spotify_api_key, spotify_api_secret
 
-from fastapi import FastAPI, HTTPException, Query, Path
-from src.config import spoonacular_api_key
-from pydantic_core.core_schema import none_schema
+from fastapi import FastAPI, HTTPException, Query
 import httpx
 import base64
 import random
-
 app = FastAPI()
-spoonacular_api_key = spoonacular_api_key
-spoonacular_url = "https://api.spoonacular.com/recipes/random"
 
 dish_type_mapping = {
     "main": "main course",
@@ -19,20 +14,20 @@ dish_type_mapping = {
 }
 
 async def fetch_recipe(cuisine: str, dish_type: str):
+    spoonacular_id = spoonacular_api_key
+    spoonacular_url = "https://api.spoonacular.com/recipes/random"
     params = {
-        "apiKey": spoonacular_api_key,
+        "apiKey": spoonacular_id,
         "tags": f"{cuisine},{dish_type}",
         "number": 1,
         "limitLicense": "true",
         "includeNutrition": "false",
     }
-
     try:
         async with httpx.AsyncClient() as client:
             response = await client.get(spoonacular_url, params=params)
             response.raise_for_status()
         return response.json()
-
     except httpx.HTTPStatusError as e:
         raise HTTPException(status_code=response.status_code, detail=str(e))
     except Exception:
@@ -41,7 +36,6 @@ async def fetch_recipe(cuisine: str, dish_type: str):
 def format_recipe(recipe_data, cuisine: str, dish_type: str):
     recipe = recipe_data["recipes"][0]
     ingredients = []
-
     for post in recipe["extendedIngredients"]:
         ingredient = {
             "name": post["name"],
@@ -49,7 +43,6 @@ def format_recipe(recipe_data, cuisine: str, dish_type: str):
             "unit": post["unit"]
         }
         ingredients.append(ingredient)
-
     return {
         "id": recipe["id"],
         "title": recipe["title"],
@@ -72,7 +65,6 @@ def validate_response(recipe_data) -> bool:
 async def get_menu(cuisine: str, q: Annotated[list[str], Query()] = ["main", "starter", "dessert"]):
     cuisine = cuisine.lower()
     menu = []
-
     for dish in q:
         if dish not in dish_type_mapping:
             raise HTTPException(status_code=400, detail="Invalid param. Only 'main', 'starter' or 'dessert' allowed")
@@ -83,7 +75,6 @@ async def get_menu(cuisine: str, q: Annotated[list[str], Query()] = ["main", "st
 
             formatted_recipe = format_recipe(recipe_data, cuisine, dish)
             menu.append(formatted_recipe)
-
     return {"menu": menu}
 
 async def set_token():
