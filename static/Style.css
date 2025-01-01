@@ -63,6 +63,12 @@
 
 /*--------------------end drop down btn------------- */
 
-#local_nav {
+#local_nav_wrapper {
+    display: flex;
+}
+
+
+
+.local_nav_link {
     display: flex;
 }
