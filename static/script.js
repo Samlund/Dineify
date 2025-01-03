@@ -1,3 +1,8 @@
+function init() {
+  document.querySelector(".course").innerText = "lorem ipsum"
+}
+window.addEventListener("load", init);
+
 /* Hiding and showing dropdown generation menu*/
 function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
