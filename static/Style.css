@@ -1,3 +1,10 @@
+main {
+    margin: auto;
+    padding: 1.75rem;
+    max-width: 1320px;
+    
+
+}
 
 #cuisine_generator {
     padding: 2.5rem;
@@ -68,8 +75,14 @@
     display: flex;
 }
 
-
+#local_nav_col {
+    padding-right: 1.7rem;
+}
 
 .local_nav_link {
     display: flex;
+}
+
+aside.col {
+    max-width: 25%;
 }

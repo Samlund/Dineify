@@ -43,11 +43,24 @@
     </header>
 
     <main>
+      <!--_____________________________________________start selection 1_____________________________________________-->
       <section id="cuisine_generator">
         <h2>Choose your cuisine here</h2>
         <p>lorem ipsum</p>
 
+        <form id="generate_this_cuisine" action="" method="get">
+          <div>
+            <input class="form-select" list="datalistOptions" id="exampleDataList" placeholder="Search...">
+            <button type="submit">ok</button>
+
+        <dialog>
+          <h4>You chose ######. Please confirm to generate recipes and playlist.</h4>
+          <button type="button" id="cancelbtn">Cancel</button>
+          <button type="button" id="enterbtn">Okay</button>
+        </dialog>
         <!--_____________________________________________End selection 1_____________________________________________-->
+
+        <!--_____________________________________________End selection 2_____________________________________________-->
         <div class="dropdown">
           <button onclick="myFunction()" class="dropbtn">Generate</button>
           <div id="myDropdown" class="dropdown-content">
@@ -86,40 +99,75 @@
             <option value="hej">hej</option>
           </div>
         </div>
-        <!--_____________________________________________End selection 1_____________________________________________-->
+        <!--_____________________________________________End selection 2_____________________________________________-->
 
-        <!--_____________________________________________Start selection 2___________________________________________
-        <select id="myDropdown" class="form-select dropdown-content" aria-label="Default select example">
-          <input type="text" placeholder="Choose your cuisine" id="myInput" onkeyup="filterFunction()" />
-          <option selected>Open this select menu</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </select>
-        _____________________________________________End selection 2_____________________________________________-->
       </section>
 
-      
+      <hr>
+
+<!--_____________________________________________Start generated content_____________________________________________-->
 
       <div class="container">
         <div class="row align-items-start">
           <section id="local_nav_wrapper" class="col">
-            <nav >Local nav
+            <nav id="local_nav_col">Local nav
               <a href="#course_starter" class="local_nav_link">Starter</a>
               <a href="#course_main" class="local_nav_link">Main</a>
               <a href="#course_dessert" class="local_nav_link">Dessert</a>
             </nav>
 
             <article id="artical_wrapper" class="col">
-              <article id="course_starter" class="course">Starter
-                <p id="text_starter"></p>
-              
-              </article>
-              
+              <h2 id="cuisine_defenition">Cuisine</h2>
+              <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      Starter
+                    </button>
+                  </h2>
+                  <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <article id="course_starter" class="course">Starter
+                        <div id="starter_header">Title, url, course, servings, readyInMinutes</div>
+                        <img src="" alt="starter" id="starter_img">
+                        <div id="ingredients">"ingredients":</div>
+                        <div id="instructions">instructions</div>
+                        <div id="summary">summary</div>
+        
+                        <p id="text_starter">
+                          test
+                        </p>
+                      </article>
 
-              <article id="course_main" class="course">Main</article>
-
-              <article id="course_dessert" class="course">Dessert</article>
+                      <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, voluptates. Veniam voluptates est odio sequi ipsam, et dolor blanditiis numquam expedita sint beatae repudiandae delectus, alias nobis dignissimos deleniti totam.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      Main
+                    </button>
+                  </h2>
+                  <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, voluptates. Veniam voluptates est odio sequi ipsam, et dolor blanditiis numquam expedita sint beatae repudiandae delectus, alias nobis dignissimos deleniti totam.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      Dessert
+                    </button>
+                  </h2>
+                  <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, voluptates. Veniam voluptates est odio sequi ipsam, et dolor blanditiis numquam expedita sint beatae repudiandae delectus, alias nobis dignissimos deleniti totam.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>             
             </article>
           </section>
 

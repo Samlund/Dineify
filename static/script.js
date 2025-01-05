@@ -1,7 +1,10 @@
+//const baseURL = "http://localhost:8000/";
+
+/* Test courses
 function init() {
   document.querySelector(".course").innerText = "lorem ipsum"
 }
-window.addEventListener("load", init);
+window.addEventListener("load", init);*/
 
 /* Hiding and showing dropdown generation menu*/
 function myFunction() {
