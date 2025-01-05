@@ -2,13 +2,21 @@ main {
     margin: auto;
     padding: 1.75rem;
     max-width: 1320px;
-    
-
 }
 
 #cuisine_generator {
     padding: 2.5rem;
     text-align: center;
+}
+
+div#search_generator {
+    display: flex;
+}
+
+input#exampleDataList.form-select {
+    border-radius: 0;
+    border-top-left-radius: 0.33rem;
+    border-bottom-left-radius: 0.33rem;
 }
 
 /*--------------------start drop down btn------------- */
