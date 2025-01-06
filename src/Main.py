@@ -43,9 +43,6 @@ def format_recipe(recipe_data, cuisine: str, course_type: str):
     """
     recipe = recipe_data["recipes"][0]
     ingredients = []
-    image = "not found"
-    if recipe["image"]:
-        image = recipe["image"]
     for post in recipe["extendedIngredients"]:
         ingredient = {
             "name": post["name"],
@@ -59,7 +56,7 @@ def format_recipe(recipe_data, cuisine: str, course_type: str):
         "url": recipe["sourceUrl"],
         "cuisine": cuisine,
         "course": course_type,
-        "image": image,
+        "image": recipe.get("image", "not found"),
         "servings": recipe["servings"],
         "readyInMinutes": recipe["readyInMinutes"],
         "summary": recipe["summary"],
