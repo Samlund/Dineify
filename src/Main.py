@@ -35,7 +35,7 @@ async def fetch_recipe(cuisine: str, course_type: str):
 
 def format_recipe(recipe_data, cuisine: str, course_type: str):
     """
-    Extracts and formats recipe data fetched from third party API.
+    Extracts and formats recipe data fetched from the Spoonacular API.
     :param recipe_data: Unformatted recipe information
     :param cuisine: A cuisine, such as "italian"
     :param course_type: A specific type of dish
@@ -81,10 +81,10 @@ async def get_menu(cuisine: str, q: Annotated[list[str], Query()] = ["main", "st
     """
     Returns a JSON-object containing a menu of recipes based on a certain cuisine.
     Method accepts a list of query parameters which specifies which courses will be returned.
-    As a default, a three-course menu subsisting of a starter, main course and dessert will be returned.
+    As a default, a three-course menu consisting of a starter, main course and dessert will be returned.
     :param cuisine: A cuisine, such as "italian".
     :param q: A list of courses
-    :return: A list of recipes
+    :return: JSON-object containing a list of recipes
     """
     course_type_mapping = {
         "main": "main course",
