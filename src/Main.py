@@ -93,9 +93,11 @@ async def set_token():
     token_url = "https://accounts.spotify.com/api/token"
     async with httpx.AsyncClient() as client:
         response = await client.post(token_url, headers = header, data = body)
+        if response.status_code != 200:
+            raise HTTPException(status_code=500, detail="Server error, please contact support")
         return response.json()["access_token"]
 
-async def get_playlist(theme : str):
+async def get_playlist_url(theme : str):
     """
     Method for getting a random playlist from the top 10 Spotify playlists matching the theme
     :param theme: search will be based on this keyword
@@ -120,13 +122,15 @@ async def get_playlist(theme : str):
         return embedded_url
 
 @app.get("/v1.0/music/playlists/")
-async def return_playlist(theme : str):
+async def get_playlist(theme : str):
     """
     Returns a playlist when get is called on endpoint "/v1.0/music/playlists/"
     :param theme: theme of the playlist
     :return: URL for an embedded player containing a playlist matching the theme
     """
-    url =  await get_playlist(theme)
+    if theme is None:
+        raise HTTPException(status_code=400, detail="Please provide a theme as a query. /v1.0/music/playlists/{theme}")
+    url =  await get_playlist_url(theme)
     if url is None:
-        raise HTTPException(status_code=404, detail="No playlist matches that theme")
+        raise HTTPException(status_code=404, detail="No playlist matching the theme found, try another query")
     return url
