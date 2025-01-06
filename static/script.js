@@ -1,11 +1,18 @@
 //const baseURL = "http://localhost:8000/";
 
-/* Test courses
+/* Test courses*/
 function init() {
-  document.querySelector(".course").innerText = "lorem ipsum"
+  document.querySelector("#test_starter").innerText = "lorem ipsum"
 }
-window.addEventListener("load", init);*/
+window.addEventListener("load", init);
 
+
+
+
+
+
+
+//----------------Start btn generator 2 ------------
 /* Hiding and showing dropdown generation menu*/
 function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
@@ -25,3 +32,4 @@ function filterFunction() {
       }
     }
 }
+//----------------End btn generator 2 --------------
