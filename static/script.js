@@ -6,12 +6,6 @@ function init() {
 }
 window.addEventListener("load", init);
 
-
-
-
-
-
-
 //----------------Start btn generator 2 ------------
 /* Hiding and showing dropdown generation menu*/
 function myFunction() {
