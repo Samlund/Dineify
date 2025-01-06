@@ -7,18 +7,18 @@ import base64
 import random
 app = FastAPI()
 
-dish_type_mapping = {
-    "main": "main course",
-    "starter": "starter",
-    "dessert": "dessert",
-}
-
-async def fetch_recipe(cuisine: str, dish_type: str):
+async def fetch_recipe(cuisine: str, course_type: str):
+    """
+    Fetches information about a recipe from the Spoonacular API based on a specific cuisine and course type.
+    :param cuisine: A cuisine, such as "italian"
+    :param course_type: A specific type of dish
+    :return: JSON containing recipe information
+    """
     spoonacular_id = spoonacular_api_key
     spoonacular_url = "https://api.spoonacular.com/recipes/random"
     params = {
         "apiKey": spoonacular_id,
-        "tags": f"{cuisine},{dish_type}",
+        "tags": f"{cuisine},{course_type}",
         "number": 1,
         "limitLicense": "true",
         "includeNutrition": "false",
@@ -33,9 +33,19 @@ async def fetch_recipe(cuisine: str, dish_type: str):
     except Exception:
         raise HTTPException(status_code=500, detail="Something went wrong")
 
-def format_recipe(recipe_data, cuisine: str, dish_type: str):
+def format_recipe(recipe_data, cuisine: str, course_type: str):
+    """
+    Extracts and formats recipe data fetched from third party API.
+    :param recipe_data: Unformatted recipe information
+    :param cuisine: A cuisine, such as "italian"
+    :param course_type: A specific type of dish
+    :return: A dict containing formatted recipe information
+    """
     recipe = recipe_data["recipes"][0]
     ingredients = []
+    image = "not found"
+    if recipe["image"]:
+        image = recipe["image"]
     for post in recipe["extendedIngredients"]:
         ingredient = {
             "name": post["name"],
@@ -48,8 +58,8 @@ def format_recipe(recipe_data, cuisine: str, dish_type: str):
         "title": recipe["title"],
         "url": recipe["sourceUrl"],
         "cuisine": cuisine,
-        "course": dish_type,
-        "image": recipe["image"],
+        "course": course_type,
+        "image": image,
         "servings": recipe["servings"],
         "readyInMinutes": recipe["readyInMinutes"],
         "summary": recipe["summary"],
@@ -58,22 +68,40 @@ def format_recipe(recipe_data, cuisine: str, dish_type: str):
     }
 
 def validate_response(recipe_data) -> bool:
+    """
+    Returns true if a dict containing recipe data is not empty.
+    :param recipe_data: dict containing recipe information
+    :return: True if dict is not empty, otherwise false
+    """
     return bool(recipe_data["recipes"])
 
 
 @app.get("/v1.0/recipes/menus/")
 async def get_menu(cuisine: str, q: Annotated[list[str], Query()] = ["main", "starter", "dessert"]):
+    """
+    Returns a JSON-object containing a menu of recipes based on a certain cuisine.
+    Method accepts a list of query parameters which specifies which courses will be returned.
+    As a default, a three-course menu subsisting of a starter, main course and dessert will be returned.
+    :param cuisine: A cuisine, such as "italian".
+    :param q: A list of courses
+    :return: A list of recipes
+    """
+    course_type_mapping = {
+        "main": "main course",
+        "starter": "starter",
+        "dessert": "dessert",
+    }
     cuisine = cuisine.lower()
     menu = []
-    for dish in q:
-        if dish not in dish_type_mapping:
+    for course in q:
+        if course not in course_type_mapping:
             raise HTTPException(status_code=400, detail="Invalid param. Only 'main', 'starter' or 'dessert' allowed")
         else:
-            recipe_data = await fetch_recipe(cuisine, dish_type_mapping[dish])
+            recipe_data = await fetch_recipe(cuisine, course_type_mapping[course])
             if not validate_response(recipe_data):
-                recipe_data = await fetch_recipe("", dish_type_mapping[dish])
-
-            formatted_recipe = format_recipe(recipe_data, cuisine, dish)
+                recipe_data = await fetch_recipe("", course_type_mapping[course])
+                cuisine = "random"
+            formatted_recipe = format_recipe(recipe_data, cuisine, course)
             menu.append(formatted_recipe)
     return {"menu": menu}
 
