@@ -9,8 +9,24 @@ main {
     text-align: center;
 }
 
+#title_cuisine_generator {
+    padding-bottom: 1rem;
+}
+
 div#search_generator {
     display: flex;
+}
+
+select.form-select {
+    border-radius: 0;
+    border-top-left-radius: 0.33rem;
+    border-bottom-left-radius: 0.33rem;
+}
+
+#generator_btn {
+    border-radius: 0;
+    border-top-right-radius: 0.33rem;
+    border-bottom-right-radius: 0.33rem;
 }
 
 input#exampleDataList.form-select {

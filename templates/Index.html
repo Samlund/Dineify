@@ -43,28 +43,56 @@
     </header>
 
     <main>
-
       <section id="cuisine_generator">
-        <h2>Choose your cuisine here</h2>
-        <p>lorem ipsum</p>
+        <h2 id="title_cuisine_generator">Choose your cuisine here</h2>
 
-      <!-- _____________________________________________start selection 1_____________________________________________ -->      
-        <form id="generate_this_cuisine" action="" method="get">
+        <!-- _____________________________________________start selection 1_____________________________________________ -->
+        <form id="generate_this_cuisine" action="/v1.0/recipes/menus/" method="get">
           <div id="search_generator">
-            <input class="form-select" list="datalistOptions" id="exampleDataList" placeholder="Search..." />
-            <button type="submit">Enter</button>
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Open to select cuisine</option>
+              <option value="African">African</option>
+              <option value="Asian">Asian</option>
+              <option value="American">American</option>
+              <option value="British">British</option>
+              <option value="Cajun">Cajun</option>
+              <option value="Caribbean">Caribbean</option>
+              <option value="Chinese">Chinese</option>
+              <option value="Eastern European">Eastern European</option>
+              <option value="European">European</option>
+              <option value="French">French</option>
+              <option value="German">German</option>
+              <option value="Greek">Greek</option>
+              <option value="Indian">Indian</option>
+              <option value="Irish">Irish</option>
+              <option value="Italian">Italian</option>
+              <option value="Japanese">Japanese</option>
+              <option value="Jewish">Jewish</option>
+              <option value="Korean">Korean</option>
+              <option value="Latin Ameriacan">Latin Ameriacan</option>
+              <option value="Mediterranean">Mediterranean</option>
+              <option value="Mexican">Mexican</option>
+              <option value="Middle Eastern">Middle Eastern</option>
+              <option value="Nordic">Nordic</option>
+              <option value="Southern">Southern</option>
+              <option value="Spanish">Spanish</option>
+              <option value="Thai">Thai</option>
+              <option value="Vietnames">Vietnames</option>
+            </select>
+            <button type="submit" id="generator_btn" class="btn btn-success">Enter</button>
           </div>
 
+          <!-- 
           <dialog>
             <h4>You chose ######. Please confirm to generate recipes and playlist.</h4>
             <button type="button" id="cancelbtn">Cancel</button>
             <button type="button" id="enterbtn">Okay</button>
-          </dialog>
+          </dialog>  -->
         </form>
-      
+
         <!-- _____________________________________________End selection 1_____________________________________________ -->
 
-        <!-- _____________________________________________End selection 2_____________________________________________ -->
+        <!--  _____________________________________________Start selection 2_____________________________________________ 
         <div class="dropdown">
           <button onclick="myFunction()" class="dropbtn">Generate</button>
           <div id="myDropdown" class="dropdown-content">
@@ -96,14 +124,9 @@
             <a href="#">Spanish</a>
             <a href="#">Thai</a>
             <a href="#">Vietnames</a>
-            <a href="#">test2</a>
-            <a href="#">test1</a>
-            <a href="#">test2</a>
-            <option value="hejhej">hejhej</option>
-            <option value="hej">hej</option>
           </div>
         </div>
-        <!-- _____________________________________________End selection 2_____________________________________________ -->
+         _____________________________________________End selection 2_____________________________________________  -->
       </section>
 
       <hr />
