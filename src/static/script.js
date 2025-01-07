@@ -28,7 +28,7 @@ function getSelectedCuisine() {
 //Sends request to to backend to get recipes
 async function fetchRecipes(cuisine) { 
   try {
-    const response = await fetch(`/v1.0/recipes/menus/?cuisine=${cuisine}`); 
+    const response = await fetch(`/v1.0/recipes/?cuisine=${cuisine}`);
 
     if (!response.ok) { 
       throw new Error(`Error: ${response.statusText}`); 
