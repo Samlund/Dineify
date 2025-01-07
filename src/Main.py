@@ -70,7 +70,7 @@ def format_recipe(recipe_data, cuisine: str, course_type: str):
         }
         ingredients.append(ingredient)
     image = "/static/images/default_image.png"
-    if recipe["image"] is not None:
+    if "image" in recipe:
         image = recipe["image"]
     return {
         "id": recipe["id"],
@@ -82,7 +82,7 @@ def format_recipe(recipe_data, cuisine: str, course_type: str):
         "servings": recipe["servings"],
         "readyInMinutes": recipe["readyInMinutes"],
         "summary": recipe["summary"],
-        "instructions": recipe["instructions"],
+        "instructions": remove_HTML(recipe["instructions"]),
         "ingredients": ingredients
     }
 
@@ -94,6 +94,11 @@ def validate_response(recipe_data) -> bool:
     """
     return bool(recipe_data["recipes"])
 
+def remove_HTML(text: str) -> str:
+    tags = ["<ol>", "<li>", "</li>", "</ol>", "<p>", "</p>","<span>", "</span>"]
+    for tag in tags:
+        text = text.replace(tag, " ")
+    return text
 
 @app.get("/v1.0/recipes/")
 async def get_menu(cuisine: str, q: Annotated[list[str], Query()] = ["main", "starter", "dessert"]):
