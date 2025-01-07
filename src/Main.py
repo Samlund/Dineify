@@ -46,15 +46,11 @@ async def fetch_recipe(cuisine: str, course_type: str):
         "limitLicense": "true",
         "includeNutrition": "false",
     }
-    try:
-        async with httpx.AsyncClient() as client:
-            response = await client.get(spoonacular_url, params=params)
-            response.raise_for_status()
-        return response.json()
-    except httpx.HTTPStatusError as e:
-        raise HTTPException(status_code=response.status_code, detail=str(e))
-    except Exception:
-        raise HTTPException(status_code=500, detail="Something went wrong")
+    async with httpx.AsyncClient() as client:
+        response = await client.get(spoonacular_url, params=params)
+        if response.status_code != 200:
+            raise HTTPException(status_code=500, detail="Server error, please contact support")
+    return response.json()
 
 def format_recipe(recipe_data, cuisine: str, course_type: str):
     """
@@ -73,7 +69,7 @@ def format_recipe(recipe_data, cuisine: str, course_type: str):
             "unit": post["unit"]
         }
         ingredients.append(ingredient)
-    image = "No image found"
+    image = "/static/images/default_image.png"
     if recipe["image"] is not None:
         image = recipe["image"]
     return {
