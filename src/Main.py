@@ -10,9 +10,9 @@ import base64
 import random
 app = FastAPI()
 
-app.mount("/static", StaticFiles(directory="../static"), name="static")
+app.mount("/static", StaticFiles(directory="./static"), name="static")
 
-templates = Jinja2Templates(directory="../templates")
+templates = Jinja2Templates(directory="./templates")
 
 @app.get("/",response_class=HTMLResponse)
 async def index(request: Request):
