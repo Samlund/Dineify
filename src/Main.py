@@ -1,11 +1,23 @@
 from typing import Annotated
 from config import spoonacular_api_key, spotify_api_key, spotify_api_secret
 
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI, HTTPException, Query, Request
+from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
 import httpx
 import base64
 import random
 app = FastAPI()
+
+app.mount("/static", StaticFiles(directory="./static"), name="static")
+
+templates = Jinja2Templates(directory="./templates")
+
+@app.get("/",response_class=HTMLResponse)
+async def index(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
+
 
 async def fetch_recipe(cuisine: str, course_type: str):
     """
