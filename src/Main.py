@@ -5,6 +5,8 @@ from fastapi import FastAPI, HTTPException, Query, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+from fastapi.middleware.cors import CORSMiddleware
+
 import httpx
 import base64
 import random
@@ -13,6 +15,15 @@ app = FastAPI()
 app.mount("/static", StaticFiles(directory="./static"), name="static")
 
 templates = Jinja2Templates(directory="./templates")
+
+origins = ["*"]
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/",response_class=HTMLResponse)
 async def index(request: Request):
@@ -85,7 +96,7 @@ def validate_response(recipe_data) -> bool:
     return bool(recipe_data["recipes"])
 
 
-@app.get("/v1.0/recipes/menus/")
+@app.get("/v1.0/recipes/")
 async def get_menu(cuisine: str, q: Annotated[list[str], Query()] = ["main", "starter", "dessert"]):
     """
     Returns a JSON-object containing a menu of recipes based on a certain cuisine.
@@ -134,11 +145,11 @@ async def set_token():
             raise HTTPException(status_code=500, detail="Server error, please contact support")
         return response.json()["access_token"]
 
-async def get_playlist_url(theme : str):
+async def get_playlist_id(theme : str):
     """
-    Method for getting a random playlist from the top 10 Spotify playlists matching the theme
+    Method for getting a random playlist ID from the top 10 Spotify playlists matching the theme
     :param theme: search will be based on this keyword
-    :return: URL for an embedded player containing a playlist matching the theme
+    :return: playlist id
     """
     token = await set_token()
     request_header = {"Authorization" : "Bearer " + token}
@@ -155,19 +166,18 @@ async def get_playlist_url(theme : str):
         if not option_list:
             return None
         playlist_id = response_dict[index]["id"]
-        embedded_url = "https://open.spotify.com/embed/playlist/"+playlist_id+"?utm_source=generator"
-        return embedded_url
+        return playlist_id
 
-@app.get("/v1.0/music/playlists/")
+@app.get("/v1.0/playlists/")
 async def get_playlist(theme : str):
     """
-    Returns a playlist when get is called on endpoint "/v1.0/music/playlists/"
+    Returns a playlist ID when get is called on endpoint "/v1.0/music/playlists/"
     :param theme: theme of the playlist
-    :return: URL for an embedded player containing a playlist matching the theme
+    :return: ID for a playlist matching the theme
     """
     if theme is None:
         raise HTTPException(status_code=400, detail="Please provide a theme as a query. /v1.0/music/playlists/{theme}")
-    url =  await get_playlist_url(theme)
-    if url is None:
+    _id =  await get_playlist_id(theme)
+    if _id is None:
         raise HTTPException(status_code=404, detail="No playlist matching the theme found, try another query")
-    return url
+    return _id
