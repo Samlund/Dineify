@@ -73,13 +73,16 @@ def format_recipe(recipe_data, cuisine: str, course_type: str):
             "unit": post["unit"]
         }
         ingredients.append(ingredient)
+    image = "No image found"
+    if recipe["image"] is not None:
+        image = recipe["image"]
     return {
         "id": recipe["id"],
         "title": recipe["title"],
         "url": recipe["sourceUrl"],
         "cuisine": cuisine,
         "course": course_type,
-        "image": recipe.get("image", "not found"),
+        "image": image,
         "servings": recipe["servings"],
         "readyInMinutes": recipe["readyInMinutes"],
         "summary": recipe["summary"],
@@ -171,12 +174,12 @@ async def get_playlist_id(theme : str):
 @app.get("/v1.0/playlists/")
 async def get_playlist(theme : str):
     """
-    Returns a playlist ID when get is called on endpoint "/v1.0/music/playlists/"
+    Returns a playlist ID when get is called on endpoint "/v1.0/playlists/"
     :param theme: theme of the playlist
     :return: ID for a playlist matching the theme
     """
     if theme is None:
-        raise HTTPException(status_code=400, detail="Please provide a theme as a query. /v1.0/music/playlists/{theme}")
+        raise HTTPException(status_code=400, detail="Please provide a theme as a query. /v1.0/playlists/{theme}")
     _id =  await get_playlist_id(theme)
     if _id is None:
         raise HTTPException(status_code=404, detail="No playlist matching the theme found, try another query")
