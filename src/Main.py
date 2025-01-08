@@ -1,7 +1,7 @@
 from typing import Annotated
 from config import spoonacular_api_key, spotify_api_key, spotify_api_secret
 
-from fastapi import FastAPI, HTTPException, Query, Request
+from fastapi import FastAPI, HTTPException, Query, Request, Header
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -82,7 +82,7 @@ def format_recipe(recipe_data, cuisine: str, course_type: str):
         "servings": recipe["servings"],
         "readyInMinutes": recipe["readyInMinutes"],
         "summary": recipe["summary"],
-        "instructions": remove_HTML(recipe["instructions"]),
+        "instructions": recipe["instructions"],
         "ingredients": ingredients
     }
 
@@ -94,22 +94,19 @@ def validate_response(recipe_data) -> bool:
     """
     return bool(recipe_data["recipes"])
 
-def remove_HTML(text: str) -> str:
-    tags = ["<ol>", "<li>", "</li>", "</ol>", "<p>", "</p>","<span>", "</span>"]
-    for tag in tags:
-        text = text.replace(tag, " ")
-    return text
-
 @app.get("/v1.0/recipes/")
-async def get_menu(cuisine: str, q: Annotated[list[str], Query()] = ["main", "starter", "dessert"]):
+async def get_menu(cuisine: str, q: Annotated[list[str], Query()] = ["main", "starter", "dessert"], accept: Annotated[str | None, Header()] = None):
     """
     Returns a JSON-object containing a menu of recipes based on a certain cuisine.
     Method accepts a list of query parameters which specifies which courses will be returned.
     As a default, a three-course menu consisting of a starter, main course and dessert will be returned.
     :param cuisine: A cuisine, such as "italian".
     :param q: A list of courses
+    :param accept: Requested media type
     :return: JSON-object containing a list of recipes
     """
+    if accept != "application/json":
+        raise HTTPException(status_code=415, detail="Unsupported media type, only JSON allowed")
     course_type_mapping = {
         "main": "main course",
         "starter": "starter",
@@ -155,6 +152,7 @@ async def get_playlist_id(theme : str):
     :param theme: search will be based on this keyword
     :return: playlist id
     """
+
     token = await set_token()
     request_header = {"Authorization" : "Bearer " + token}
     spotify_endpoint = "https://api.spotify.com/v1/search?q="+theme+"&type=playlist&limit=10"
@@ -173,14 +171,17 @@ async def get_playlist_id(theme : str):
         return playlist_id
 
 @app.get("/v1.0/playlists/")
-async def get_playlist(theme : str):
+async def get_playlist(theme : str = None, accept: Annotated[str | None, Header()] = None):
     """
     Returns a playlist ID when get is called on endpoint "/v1.0/playlists/"
     :param theme: theme of the playlist
+    :param accept: requested media type from header
     :return: ID for a playlist matching the theme
     """
+    if accept != "application/json":
+        raise HTTPException(status_code=415, detail="Unsupported media type, only JSON allowed")
     if theme is None:
-        raise HTTPException(status_code=400, detail="Please provide a theme as a query. /v1.0/playlists/{theme}")
+        raise HTTPException(status_code=400, detail="Please provide a theme as a query. /v1.0/playlists/?{theme}")
     _id =  await get_playlist_id(theme)
     if _id is None:
         raise HTTPException(status_code=404, detail="No playlist matching the theme found, try another query")

@@ -9,7 +9,6 @@ async function generatorBtn() {
             alert('Please select cuisine.');
             return;
         }
-
         const recipes = await fetchRecipes(selectedCuisine);
         const id = await fetchId(selectedCuisine);
         displayRecipe(recipes.menu);
@@ -29,8 +28,12 @@ function getSelectedCuisine() {
 
 //Sends request to to backend to get recipes
 async function fetchRecipes(cuisine) {
+    const header = new Headers();
+        header.append("Accept", "application/json");
     try {
-        const response = await fetch(`/v1.0/recipes/?cuisine=${cuisine}`);
+        const response = await fetch(`/v1.0/recipes/?cuisine=${cuisine}`, {
+            headers: header
+        });
 
         if (!response.ok) {
             throw new Error(`Error: ${response.statusText}`);
@@ -44,8 +47,12 @@ async function fetchRecipes(cuisine) {
 }
 
 async function fetchId(cuisine) {
+    const header = new Headers();
+        header.append("Accept", "application/json");
     try {
-        const response = await fetch(`/v1.0/playlists/?theme=${cuisine}`);
+        const response = await fetch(`/v1.0/playlists/?theme=${cuisine}`, {
+            headers: header
+        });
 
         if (!response.ok) {
             throw new Error(`Error: ${response.statusText}`);
@@ -102,7 +109,7 @@ function generateCourse(courseDiv, recipe) {
     }
 
     if (instructions) {
-        instructions.innerText = `Instructions: ${recipe.instructions}`;
+        instructions.innerHTML = `Instructions: ${recipe.instructions}`;
     } else {
         console.warn(`${recipe.course}_instructions was not found.`);
     }
