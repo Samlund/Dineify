@@ -97,15 +97,15 @@ def validate_response(recipe_data) -> bool:
 @app.get("/v1.0/recipes/")
 async def get_menu(cuisine: str, q: Annotated[list[str], Query()] = ["main", "starter", "dessert"], accept: Annotated[str | None, Header()] = None):
     """
-    Returns a JSON-object containing a menu of recipes based on a certain cuisine.
+    Returns a menu of recipes based on a certain cuisine.
     Method accepts a list of query parameters which specifies which courses will be returned.
     As a default, a three-course menu consisting of a starter, main course and dessert will be returned.
     :param cuisine: A cuisine, such as "italian".
     :param q: A list of courses
     :param accept: Requested media type
-    :return: JSON-object containing a list of recipes
+    :return: A list of recipes
     """
-    if accept != "application/json":
+    if accept != "*/*" and accept != "application/json":
         raise HTTPException(status_code=415, detail="Unsupported media type, only JSON allowed")
     course_type_mapping = {
         "main": "main course",
@@ -152,7 +152,6 @@ async def get_playlist_id(theme : str):
     :param theme: search will be based on this keyword
     :return: playlist id
     """
-
     token = await set_token()
     request_header = {"Authorization" : "Bearer " + token}
     spotify_endpoint = "https://api.spotify.com/v1/search?q="+theme+"&type=playlist&limit=10"
@@ -178,7 +177,7 @@ async def get_playlist(theme : str = None, accept: Annotated[str | None, Header(
     :param accept: requested media type from header
     :return: ID for a playlist matching the theme
     """
-    if accept != "application/json":
+    if accept != "*/*" and accept != "application/json":
         raise HTTPException(status_code=415, detail="Unsupported media type, only JSON allowed")
     if theme is None:
         raise HTTPException(status_code=400, detail="Please provide a theme as a query. /v1.0/playlists/?{theme}")
