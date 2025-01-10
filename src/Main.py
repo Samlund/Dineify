@@ -180,7 +180,7 @@ async def get_playlist(theme : str = None, accept: Annotated[str | None, Header(
     if accept != "*/*" and accept != "application/json":
         raise HTTPException(status_code=415, detail="Unsupported media type, only JSON allowed")
     if theme is None:
-        raise HTTPException(status_code=400, detail="Please provide a theme as a query. /v1.0/playlists/?{theme}")
+        raise HTTPException(status_code=400, detail="Please provide a theme as a query. /v1.0/playlists/?theme={theme}")
     _id =  await get_playlist_id(theme)
     if _id is None:
         raise HTTPException(status_code=404, detail="No playlist matching the theme found, try another query")

@@ -1,6 +1,9 @@
 document.getElementById("generator_btn").addEventListener('click', generatorBtn);
 
-//Validation when user pressed the button "Enter" and sends request to backend
+/**
+ * Validation when user pressed the button "Enter" and sends request to backend
+ * @returns {Promise<void>}
+ */
 async function generatorBtn() {
     try {
         const selectedCuisine = getSelectedCuisine();
@@ -20,13 +23,20 @@ async function generatorBtn() {
     }
 }
 
-// Get selected cuisine
+/**
+ * Get selected cuisine
+ * @returns The cuisine selected in dropdown menu
+ */
 function getSelectedCuisine() {
     const cuisineSelection = document.querySelector("#search_generator select");
     return cuisineSelection.value;
 }
 
-//Sends request to to backend to get recipes
+/**
+ * Sends request to the backend to get recipes
+ * @param cuisine Query the request will be based on
+ * @returns JSON object containing the generated recipes
+ */
 async function fetchRecipes(cuisine) {
     const header = new Headers();
         header.append("Accept", "application/json");
@@ -46,6 +56,11 @@ async function fetchRecipes(cuisine) {
     }
 }
 
+/**
+ * Sends request to the backend to get a playlist ID
+ * @param cuisine Query the request will be based on
+ * @returns {Promise<any>} JSON object containing the id as a string
+ */
 async function fetchId(cuisine) {
     const header = new Headers();
         header.append("Accept", "application/json");
@@ -65,7 +80,10 @@ async function fetchId(cuisine) {
     }
 }
 
-//Assign content to right HTML element
+/**
+ * Assign content to correct HTML element
+ * @param dishes JSON object containing the dishes that are to be displayed
+ */
 function displayRecipe(dishes) {
     dishes.forEach(recipe => {
         const courseDiv = document.getElementById(`course_${recipe.course}`);
@@ -77,11 +95,19 @@ function displayRecipe(dishes) {
     });
 }
 
+/**
+ * Update the src of the embedded player to show the provided playlist
+ * @param id id of the playlist
+ */
 function displayPlaylist(id) {
     document.getElementById("embedded_player").src = `https://open.spotify.com/embed/playlist/${id}?utm_source=generator`;
 }
 
-//Adding content to assigned element
+/**
+ * Adds content to assigned element
+ * @param courseDiv element to populate
+ * @param recipe recipe to be added to the element
+ */
 function generateCourse(courseDiv, recipe) {
     const header = courseDiv.querySelector(`#${recipe.course}_header`);
     const img = courseDiv.querySelector(`#${recipe.course}_img`);
