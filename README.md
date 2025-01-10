@@ -18,7 +18,7 @@
 ## How to run the project 
 
 1. Make sure you have completed the steps in the "How to set up the project"-section.
-2. Navigate to the project folder in the terminal.
+2. Navigate to the ``src`` directory in the project folder using the terminal.
 3. Start the server by running the following command: ``uvicorn Main:app --port 8000``
 4. Open any web browser and navigate to http://127.0.0.1:8000.
 5. Select one of the world’s cuisines from the dropdown menu and click the Enter button.
