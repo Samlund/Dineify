@@ -77,17 +77,10 @@
 
         <div class="row align-items-start">
           <section id="local_nav_wrapper" class="col">
-            <nav id="local_nav_col">
-              <h3>Courses</h3>
-              <a href="#course_starter" class="local_nav_link">Starter</a>
-              <a href="#course_main" class="local_nav_link">Main</a>
-              <a href="#course_dessert" class="local_nav_link">Dessert</a>
-            </nav>
-
             <article id="article_wrapper" class="col">
               <div class="accordion" id="accordionExample">
                 <div class="accordion-item">
-                  <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Starter</button></h2>
+                  <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Starter: </button></h2>
 
                   <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
@@ -97,10 +90,10 @@
                         <div id="starter_ingredients" class="instructions">
                           <h4 class="cuisine_subheading">Ingredients</h4>
                         </div>
-                        <div id="starter_instructions">
+                        <div id="starter_instructions" class="instructions">
                           <h4 class="cuisine_subheading">Instructions</h4>
                         </div>
-                        <div id="starter_summary">
+                        <div id="starter_summary" class="summary">
                           <h4 class="cuisine_subheading">Summary</h4>
                         </div>
                       </article>
@@ -109,38 +102,38 @@
                 </div>
 
                 <div class="accordion-item">
-                  <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Main</button></h2>
+                  <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Main: </button></h2>
                   <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                       <article id="course_main" class="course">
-                        <div id="main_header">Title, url, course, servings, readyInMinutes</div>
+                        <div id="main_header"></div>
                         <img src="" alt="main" id="main_img" />
-                        <div id="main_ingredients">"ingredients":</div>
-                        <div id="main_instructions" class="instructions">instructions</div>
-                        <div id="main_summary">summary</div>
+                        <div id="main_ingredients"></div>
+                        <div id="main_instructions" class="instructions"></div>
+                        <div id="main_summary" class="summary"></div>
                       </article>
                     </div>
                   </div>
                 </div>
 
                 <div class="accordion-item">
-                  <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Dessert</button></h2>
+                  <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Dessert: </button></h2>
                   <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                       <article id="course_dessert" class="course">
                         <div id="dessert_header">
-                          <p>Title, url, course, servings, readyInMinutes</p>
                         </div>
                         <img src="" alt="dessert" id="dessert_img" />
-                        <div id="dessert_ingredients">ingredients</div>
-                        <div id="dessert_instructions" class="instructions">instructions</div>
-                        <div id="dessert_summary">summary</div>
+                        <div id="dessert_ingredients"></div>
+                        <div id="dessert_instructions" class="instructions"></div>
+                        <div id="dessert_summary" class="summary"></div>
                       </article>
                     </div>
                   </div>
                 </div>
               </div>
             </article>
+            
           </section>
           <aside id="spotify_wrapper" class="col">
             <iframe id="embedded_player" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/<PLACEHOLDER>?utm_source=generator" width="100%" height="600" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>

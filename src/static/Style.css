@@ -6,6 +6,10 @@ a {
     text-decoration: none;
 }
 
+h4 {
+    margin: 0 !important;
+}
+
 nav.navbar.bg-dark.border-body {
     box-shadow: 0 4px 8px 0 rgb(0 0 0 / 32%), 0 6px 20px 0 rgb(0 0 0 / 37%);
 }
@@ -103,6 +107,7 @@ hr {
 }
 
 #generated_content {
+    display: none;
     margin-top: 2.3rem;
 }
 
@@ -170,12 +175,16 @@ div#starter_header, div#main_header, div#dessert_header {
 }
 
 img{
+    display: block; 
+    margin: auto;
     margin-bottom: 0.7rem;
+
 }
 
-.instructions {
+.instructions, .summary {
     margin-top: 1rem;
 }
+
 
 aside.col {
     max-width: 35%;
