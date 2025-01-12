@@ -2,7 +2,7 @@ body {
     background-color: antiquewhite;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
@@ -10,13 +10,14 @@ nav.navbar.bg-dark.border-body {
     box-shadow: 0 4px 8px 0 rgb(0 0 0 / 32%), 0 6px 20px 0 rgb(0 0 0 / 37%);
 }
 
-header {
-    margin: auto;
+header.container-lg {
+    --bs-gutter-x: none;
 }
 
 #hero {
     background-image: url(/src/static/images/cuisine_header.jpeg);
     height: 600px;
+    width: 100%;
     background-repeat: no-repeat;
     background-size: auto;
     background-size: 1700px;
@@ -33,7 +34,7 @@ div.card {
 
 div.card-body {
     margin: auto;
-    margin-top: 21.5rem;
+    margin-top: 24rem;
     flex: none;
 }
 
@@ -46,6 +47,7 @@ select.form-select {
 main {
     margin: auto;
     padding: 1.75rem;
+    padding-top: 1rem;
     max-width: 1320px;
 }
 
@@ -151,3 +153,4 @@ footer{
 p.container{
     padding-top: 1.2rem;
 }
+
