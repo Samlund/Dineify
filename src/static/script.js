@@ -116,7 +116,7 @@ function generateCourse(courseDiv, recipe) {
     const summary = courseDiv.querySelector(`#${recipe.course}_summary`);
 
     if (header) {
-        header.innerText = `Title: ${recipe.title}, URL: ${recipe.url}, Course: ${recipe.course}, Servings: ${recipe.servings}, Ready In: ${recipe.readyInMinutes} minutes`;
+        header.innerHTML = `Title: ${recipe.title} <br> URL: ${recipe.url} <br> Course: ${recipe.course}<br> Servings: ${recipe.servings} <br> Ready in: ${recipe.readyInMinutes} minutes`;
     } else {
         console.warn(`${recipe.course}_header was not found.`);
     }

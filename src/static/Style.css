@@ -1,5 +1,5 @@
 body {
-    background-color: antiquewhite;
+    background-color: #f0eae4;
 }
 
 a {
@@ -15,7 +15,7 @@ header.container-lg {
 }
 
 #hero {
-    background-image: url(/src/static/images/cuisine_header.jpeg);
+    background-image: url(/static/images/cuisine_header.jpeg);
     height: 600px;
     width: 100%;
     background-repeat: no-repeat;
@@ -98,8 +98,20 @@ input#exampleDataList.form-select {
 }
 
 hr {
-    color: #4c5e46;
-    height: 1rem;
+    border: 1.2px solid #574032;
+    opacity: .7;
+}
+
+#generated_content {
+    margin-top: 2.3rem;
+}
+
+div#generated_content.container{
+    margin-top: 0;
+}
+
+#title_generated {
+    margin-bottom: 1rem;
 }
 
 #local_nav_wrapper {
@@ -136,6 +148,33 @@ h3 {
 .accordion{
     --bs-accordion-bg: none;
     --bs-accordion-border-color: none;
+    --bs-accordion-btn-focus-box-shadow: none;
+}
+
+h2.accordion-header {
+    background-color: #737d66;
+}
+
+button.accordion-button {
+    font-size: 1.2rem;
+    color: #f0eae4;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #4f5546;
+    color: #f0eae4;
+}
+
+div#starter_header, div#main_header, div#dessert_header {
+    margin-bottom: 1rem;
+}
+
+img{
+    margin-bottom: 0.7rem;
+}
+
+.instructions {
+    margin-top: 1rem;
 }
 
 aside.col {

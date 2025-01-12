@@ -10,27 +10,28 @@
     <style id="LLPlatform"></style>
   </head>
 
-  <body>
+  <body><div id="shadowLL"><div id="shadowLL"></div></div>
     <nav class="navbar bg-dark border-body" data-bs-theme="dark">
-        <div class="container-xxl">
-          <a class="navbar-brand" href="Index.html">Dinify</a>
-        </div>
-      </nav>
-      <header class="container">
-        <div id="hero">
-          <div class="card">
-            <div class="card-body">
-              <h1>Cuisine and tunes, perfectly paired!</h1>
-              <p>Pick your preferred cuisine and Dinify will create a complete dining experience, a starter, main course, dessert and a curated playlist to match the mood.</p>
-            </div>
+      <div class="container-lg">
+        <a class="navbar-brand" href="Index.html">Dinify</a>
+      </div>
+    </nav>
+    <header class="container-lg">
+      <div id="hero">
+        <div class="card">
+          <div class="card-body">
+            <h1>Cuisine and tunes, perfectly paired!</h1>
+            <p>
+              Pick your preferred cuisine and Dinify will create a complete dining experience, a starter, main course, <br> dessert and a playlist to match the mood.
+            </p>
           </div>
-          
-          
         </div>
-      </header>
+      </div>
+    </header>
+
     <main>
       <section id="cuisine_generator">
-        <h2 id="title_cuisine_generator">What do you feel like today?</h2>
+        <h2 id="title_cuisine_generator">What would you feel like today?</h2>
 
         <form id="generate_this_cuisine" name="generate_this_cuisine">
           <div id="search_generator">
@@ -66,25 +67,20 @@
             </select>
             <button type="button" id="generator_btn" class="btn btn-success">Enter</button>
           </div>
-
-          <!--      
-        <dialog>
-          <h4>You chose ######. Please confirm to generate recipes and playlist.</h4>
-          <button type="button" id="cancelbtn">Cancel</button>
-          <button type="button" id="enterbtn">Okay</button>
-        </dialog>       -->
         </form>
       </section>
 
-      <hr />
+      <hr>
 
       <!-- _____________________________________________Start generated content_____________________________________________ -->
 
-      <div class="container">
+      <div id="generated_content" class="container">
+        <h2 id="title_generated">Cuisine and tunes</h2>
+
         <div class="row align-items-start">
           <section id="local_nav_wrapper" class="col">
             <nav id="local_nav_col">
-              Local nav
+              <h3>Courses</h3>
               <a href="#course_starter" class="local_nav_link">Starter</a>
               <a href="#course_main" class="local_nav_link">Main</a>
               <a href="#course_dessert" class="local_nav_link">Dessert</a>
@@ -94,27 +90,16 @@
               <div class="accordion" id="accordionExample">
                 <div class="accordion-item">
                   <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Starter</button></h2>
+
                   <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                       <article id="course_starter" class="course">
-                        Starter<div id="starter_header">Title: My Asian Calamari, URL: https://www.foodista.com/recipe/T64CXDRZ/my-asian-calamari, Course: starter, Servings: 4, Ready In: 45 minutes</div>
-                        <img src="https://img.spoonacular.com/recipes/652825-556x370.jpg" alt="starter image" id="starter_img" />
-                        <div id="starter_ingredients">Ingredients: all spice powder (0.25 teaspoon), all purpose flour (1 cup), baking powder (1 tablespoon), oil (4 servings), cornstarch (1 tablespoon), curry powder (1 tablespoon), egg white (1 ), ground pepper (0.5 teaspoon), paprika (1 teaspoon), salt (4 servings), squid rings (500 grams), sugar (1.5 cups)</div>
-                        <div id="starter_instructions">
-                          Instructions:<ol>
-                            <li>In a bowl mix the ff: salt, sugar, pepper,egg white, curry powder,all spice and cornstarch.</li>
-                            <li>Mix well and put squid rings, mix again and marinate for one hour or overnight if you like.</li>
-                            <li>When you're about to cook, in a plastic or freezer bag, mix the ff: flour, baking powder and salt.</li>
-                            <li>Shake well and start to put inside the squid rings by batches.</li>
-                            <li>Fry them at once and make sure the oil is hot!</li>
-                          </ol>
-                        </div>
-                        <div id="starter_summary">
-                          Summary: My Asian Calamari requires around <b>45 minutes</b> from start to finish. Watching your figure? This dairy free and pescatarian recipe has <b>563 calories</b>, <b>24g of protein</b>, and <b>5g of fat</b> per serving. For <b>$2.6 per serving</b>, this recipe <b>covers 23%</b> of your daily requirements of vitamins and minerals. This recipe serves 4. This recipe is typical of Asian cuisine. A mixture of all spice powder, cornstarch, squid rings, and a handful of other ingredients are all it takes to make this recipe so delicious. 3 people have made this recipe and would make it again. It works well as a rather inexpensive hor d'oeuvre. It is brought to you by Foodista. Taking all factors into account, this recipe <b>earns a spoonacular score of 59%</b>, which is solid. Users who liked this recipe also liked <a href="https://spoonacular.com/recipes/asian-calamari-salad-586727">Asian Calamari Salad</a>, <a href="https://spoonacular.com/recipes/southeast-asian-rice-noodles-with-calamari-and-herbs-188585">Southeast Asian Rice Noodles with Calamari and Herbs</a>, and <a href="https://spoonacular.com/recipes/christmas-eve-calamari-calamari-in-umido-per-la-vigilia-di-natale-597284">Christmas Eve Calamari | Calamari in Umido per la Vigilia di Natale</a>.
-                        </div>
+                        <div id="starter_header">Title: Cauliflower, Brown Rice, and Vegetable Fried Rice <br> URL: https://fullbellysisters.blogspot.com/2012/01/cauliflower-fried-rice-more-veggies.html <br> Course: starter<br> Servings: 8 <br> Ready in: 30 minutes</div>
+                        <img src="https://img.spoonacular.com/recipes/716426-556x370.jpg" alt="starter image" id="starter_img">
+                        <div id="starter_ingredients">Ingredients: grapeseed oil (2 tablespoons), coconut oil (2 tablespoons), scallions (7 ), garlic (5 cloves), cauliflower (1 head), brown rice (3 cups), broccoli (2 cups), peas (1 cup), soy sauce (3 T), sesame oil (2 teaspoons), sesame seeds (8 servings), additional scallion tops (8 servings), salt (8 servings)</div>
+                        <div id="starter_instructions" class="instructions">Instructions: <ol><li><span></span>Remove the cauliflower's tough stem and reserve for another use. Using a food processor, pulse cauliflower florets until they resemble rice or couscous. You should end up with around four cups of "cauliflower rice."</li><li>Heat 1T butter and 1T oil in a large skillet over medium heat. Add garlic and the white and light green pieces of scallion. Sauté about a minute.</li><li>Add the cauliflower to the pan. Stir to coat with oil, then spread out in pan and let sit; you want it cook a bit and to caramelize (get a bit brown), which will bring out the sweetness. After a couple of minutes, stir and spread out again.</li><li>Add cold rice (it separates easily, so it won't clump up during cooking), plus the additional grapeseed and coconut oil or butter. Raise heat to medium-high. Toss everything together and, again, spread the mixture out over the whole pan and press a bit into the bottom. Let it sit for about two minutes—so the rice can get toasted and a little crispy. Add the peas and broccoli and stir again. Drizzle soy sauce and toasted sesame oil over rice.</li><li>Cook for another minute or so and turn off heat. Add chopped scallion tops and toss.</li><li>I like to toast some sesame seeds in a dry pan; I sprinkle these and some more raw, chopped scallion over the top of the rice for added flavor and crunch.</li><li>Season to taste with salt and, if you'd like, more soy sauce. Keep in mind that if you're serving this with something salty and saucy (ie. teriyaki chicken) you may want to hold off on adding too much salt to the fried rice.</li></ol></div>
+                        <div id="starter_summary">Summary: The recipe Cauliflower, Brown Rice, and Vegetable Fried Rice is ready <b>in around 30 minutes</b> and is definitely a great <b>gluten free, dairy free, lacto ovo vegetarian, and vegan</b> option for lovers of Chinese food. This recipe makes 8 servings with <b>248 calories</b>, <b>7g of protein</b>, and <b>13g of fat</b> each. For <b>$1.19 per serving</b>, this recipe <b>covers 19%</b> of your daily requirements of vitamins and minerals. It works well as a hor d'oeuvre. 3689 people have made this recipe and would make it again. It is brought to you by fullbellysisters.blogspot.com. Head to the store and pick up broccoli, t grapeseed oil, sesame seeds, and a few other things to make it today. With a spoonacular <b>score of 100%</b>, this dish is amazing. <a href="https://spoonacular.com/recipes/cauliflower-brown-rice-and-vegetable-fried-rice-1230097">Cauliflower, Brown Rice, and Vegetable Fried Rice</a>, <a href="https://spoonacular.com/recipes/cauliflower-brown-rice-and-vegetable-fried-rice-1238897">Cauliflower, Brown Rice, and Vegetable Fried Rice</a>, and <a href="https://spoonacular.com/recipes/cauliflower-brown-rice-and-vegetable-fried-rice-1403527">Cauliflower, Brown Rice, and Vegetable Fried Rice</a> are very similar to this recipe.</div>
                       </article>
-
-                      <p id="test_starter">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, voluptates. Veniam voluptates est odio sequi ipsam, et dolor blanditiis numquam expedita sint beatae repudiandae delectus, alias nobis dignissimos deleniti totam.</p>
                     </div>
                   </div>
                 </div>
@@ -124,20 +109,12 @@
                   <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                       <article id="course_main" class="course">
-                        <div id="main_header">Title: Thai Fried Rice, URL: http://www.foodista.com/recipe/C8D432DB/thai-fried-rice, Course: main, Servings: 1, Ready In: 45 minutes</div>
-                        <img src="https://img.spoonacular.com/recipes/663104-556x370.jpg" alt="main image" id="main_img" />
-                        <div id="main_ingredients">Ingredients: eggs (2 ), garlic (1 clove), bell pepper (0.5 ), oil (1 serving), big onion (1 ), bell pepper (1 serving), pork (1 pound), rice (2 cups), salt (1 serving), soy sauce (2.5 tablespoons), sugar (2 teaspoons), tomato (1 ), water (4 cups)</div>
-                        <div id="main_instructions">
-                          Instructions:<ol>
-                            <li>Saute garlic in oil. Add sliced pork; cook until brown. Add onion, tomato, and green pepper; fry slightly. Cook rice in water; add to fried mixture. Add eggs and fry. Continue stirring until eggs are cooked. Add soy sauce, salt, sugar, and pepper. Yields 6-8 servings.</li>
-                          </ol>
-                        </div>
-                        <div id="main_summary">
-                          Summary: If you want to add more <b>gluten free and dairy free</b> recipes to your recipe box, Thai Fried Rice might be a recipe you should try. This recipe serves 1. For <b>$6.78 per serving</b>, this recipe <b>covers 68%</b> of your daily requirements of vitamins and minerals. This main course has <b>2953 calories</b>, <b>122g of protein</b>, and <b>122g of fat</b> per serving. This recipe from Foodista has 2 fans. Only a few people really liked this Chinese dish. If you have water, salt, soy sauce, and a few other ingredients on hand, you can make it. From preparation to the plate, this recipe takes around <b>45 minutes</b>. All things considered, we decided this recipe <b>deserves a spoonacular score of 89%</b>. This score is outstanding. If you like this recipe, you might also like recipes such as <a href="https://spoonacular.com/recipes/thai-fried-rice-35966">Thai Fried Rice</a>, <a href="https://spoonacular.com/recipes/thai-fried-rice-1234777">Thai Fried Rice</a>, and <a href="https://spoonacular.com/recipes/thai-fried-rice-10071">Thai Fried Rice</a>.
-                        </div>
+                        <div id="main_header">Title: Neoguri (Spicy Seafood Ramen) <br> URL: https://www.foodista.com/recipe/77PG3GGF/neoguri-spicy-seafood-ramen <br> Course: main<br> Servings: 1 <br> Ready in: 45 minutes</div>
+                        <img src="https://img.spoonacular.com/recipes/653008-556x370.jpg" alt="main image" id="main_img">
+                        <div id="main_ingredients">Ingredients: egg (1 ), mussels (6 ), neoguri ramen (1 package), scallion (1 ), seaweed (1 sheet)</div>
+                        <div id="main_instructions" class="instructions">Instructions: <ol><li>1. Add mussels and sauce packets into boiling water. Let boil with mussels about 5 minutes to cook and deepen the broth. If using fresh mussels, wait until they open and discard closed mussels.</li><li>2. Include the noodles and cook for a 2, 3 minutes. Add the beaten egg while stirring noodles in a circular motion for even, flaky egg drops. If wanting a poached egg, carefully add the egg off to the side of the pot.</li><li>3. Meanwhile, cut scallion into thin pieces along with gim (seaweed) sheet.</li><li>4. Transfer to a serving bowl and add the scallions and gim (seaweed).</li></ol></div>
+                        <div id="main_summary">Summary: If you have approximately <b>45 minutes</b> to spend in the kitchen, Neoguri (Spicy Seafood Ramen) might be an awesome <b>dairy free and pescatarian</b> recipe to try. For <b>$1.04 per serving</b>, this recipe <b>covers 27%</b> of your daily requirements of vitamins and minerals. One portion of this dish contains approximately <b>21g of protein</b>, <b>19g of fat</b>, and a total of <b>481 calories</b>. This recipe serves 1. 2 people found this recipe to be yummy and satisfying. It is brought to you by Foodista. It is an <b>affordable</b> recipe for fans of Japanese food. If you have scallion, seaweed, neoguri ramen, and a few other ingredients on hand, you can make it. It works well as a main course. All things considered, we decided this recipe <b>deserves a spoonacular score of 62%</b>. This score is pretty good. Users who liked this recipe also liked <a href="https://spoonacular.com/recipes/neoguri-spicy-seafood-ramen-1371711">Neoguri (Spicy Seafood Ramen)</a>, <a href="https://spoonacular.com/recipes/spicy-chicken-ramen-1615627">Spicy Chicken Ramen</a>, and <a href="https://spoonacular.com/recipes/spicy-ramen-cup-of-noodles-1323355">Spicy Ramen Cup of Noodles</a>.</div>
                       </article>
-
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, voluptates. Veniam voluptates est odio sequi ipsam, et dolor blanditiis numquam expedita sint beatae repudiandae delectus, alias nobis dignissimos deleniti totam.</p>
                     </div>
                   </div>
                 </div>
@@ -147,20 +124,12 @@
                   <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                       <article id="course_dessert" class="course">
-                        <div id="dessert_header">Title: Japanese Souffle Cheesecake, URL: https://www.foodista.com/recipe/GTZ57HFR/japanese-souffle-cheesecake, Course: dessert, Servings: 1, Ready In: 45 minutes</div>
-                        <img src="https://img.spoonacular.com/recipes/648501-556x370.jpg" alt="dessert image" id="dessert_img" />
-                        <div id="dessert_ingredients">Ingredients: cream cheese (125 grams), butter (20 grams), milk (40 mls), caster sugar (65 grams), eggs (3 large), cream of tartar (0.25 teaspoon), self raising flour (40 grams), salt (0.25 teaspoon), scant orange juice (1 tablespoon), orange zest (1 tablespoon)</div>
-                        <div id="dessert_instructions">Instructions: Add 500 ml water into a big baking tray ( that the tin you use for the cheesecake can fit in) and place the tray in the oven then preheat the oven to 160c.Line the base and side of a 18-20 cm springform/cake tin with parchment paper. Then use a big piece of foil to wrap the tin around from the bottom upto top of the tin side.
-
-                          Place the butter, creamcheese and milk in a bowl set over a saucepan of barely simmering water, being careful not to let the bowl touch the water, then wait until the butter has melted, remove the bowl from the heat and give it a really good stir until the mixture is smooth, set aside and leave to cool at the room temperature. Add the orange juice and zest to the creamcheese mixture, stir to blend then add the yolks and mix them until incorperated. Sift the flour and salt into another mixing bowl,pour over the cream cheese and egg mixture in the center of thr flour. Quickly whisk or stir everything until just blended ( don't overmix or the cake will be tough)
-
-                          In a seperate mixing bowl , beat the egg white with cream of tartar until foamy, then gradually add the sugar ,few tablespoons at a time, and continue to beat at high speed until reach the soft-medium peak ( more than soft but not hard peak). Gently fold the white into the creamcheese mixture until blended. Pour the batter into the prepared tin. Place the tin in the preheated baking tray and bake for 50-60 minutes or until a toothpick inserted from center comes out clean. Turn the cake out on to a wire rack once taken from the oven ( the cake will shrink if left too long in the tin!). Leave to cool at room temperature, then let it set in the fridge for another hour or so before slicing and serve.</div>
-                        <div id="dessert_summary">
-                          Summary: Japanese Souffle Cheesecake could be just the <b>lacto ovo vegetarian</b> recipe you've been looking for. One portion of this dish contains approximately <b>33g of protein</b>, <b>76g of fat</b>, and a total of <b>1230 calories</b>. This recipe serves 1. For <b>$2.91 per serving</b>, this recipe <b>covers 27%</b> of your daily requirements of vitamins and minerals. It works well as a dessert. 3 people were glad they tried this recipe. It is a <b>rather inexpensive</b> recipe for fans of Japanese food. It is brought to you by Foodista. A mixture of salt, orange zest, scant orange juice, and a handful of other ingredients are all it takes to make this recipe so delicious. From preparation to the plate, this recipe takes roughly <b>45 minutes</b>. With a spoonacular <b>score of 53%</b>, this dish is pretty good. <a href="https://spoonacular.com/recipes/japanese-souffle-cheesecake-887092">Japanese Souffle Cheesecake</a>, <a href="https://spoonacular.com/recipes/japanese-souffle-pancakes-861509">Japanese Souffle Pancakes</a>, and <a href="https://spoonacular.com/recipes/fluffy-japanese-souffl-pancakes-1554663">Fluffy Japanese Soufflé Pancakes</a> are very similar to this recipe.
-                        </div>
+                        <div id="dessert_header">Title: Xocai Oatmeal Dark Chocolate No-Bake Cookies <br> URL: https://www.foodista.com/recipe/Q36G6FYW/xocai-oatmeal-dark-chocolate-no-bake-cookies <br> Course: dessert<br> Servings: 24 <br> Ready in: 45 minutes</div>
+                        <img src="https://img.spoonacular.com/recipes/665484-556x370.jpg" alt="dessert image" id="dessert_img">
+                        <div id="dessert_ingredients">Ingredients: butter substitute (0.5 cup), xocai healthy chocolate nugget (1 ), oats (3 cups), peanut butter (2 cup), soy milk (0.5 cup), sugar substitute (2 cups), vanilla (1 tsp)</div>
+                        <div id="dessert_instructions" class="instructions">Instructions: <ol><li>Combine the first four ingredient in a medium sauce pan. Heat mixture until it boils. Boils for 5 minutes, stirring constantly. Remove from heat and stir in remaining ingredients. Add the Nuggets last. Drop by spoonful onto wax paper or foil. Cookies will harden as they cool. Makes 24 cookies</li></ol></div>
+                        <div id="dessert_summary">Summary: Xocai Oatmeal Dark Chocolate No-Bake Cookies takes around <b>45 minutes</b> from beginning to end. This gluten free recipe serves 24 and costs <b>64 cents per serving</b>. One serving contains <b>265 calories</b>, <b>6g of protein</b>, and <b>16g of fat</b>. 2 people have made this recipe and would make it again. It works well as an Asian dessert. This recipe from Foodista requires vanilla, sugar substitute, oats, and peanut butter. With a spoonacular <b>score of 44%</b>, this dish is solid. Try <a href="https://spoonacular.com/recipes/xocai-irish-cream-with-xocai-healthy-dark-chocolate-nuggets-665480">Xocai Irish Cream with Xocai Healthy Dark Chocolate Nuggets</a>, <a href="https://spoonacular.com/recipes/xocai-healthy-dark-chocolate-brownies-665476">Xocai Healthy Dark Chocolate Brownies</a>, and <a href="https://spoonacular.com/recipes/video-how-to-make-a-dark-chocolate-berry-oatmeal-bake-952978">VIDEO: How to Make a Dark Chocolate Berry Oatmeal Bake</a> for similar recipes.</div>
                       </article>
-
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, voluptates. Veniam voluptates est odio sequi ipsam, et dolor blanditiis numquam expedita sint beatae repudiandae delectus, alias nobis dignissimos deleniti totam.</p>
                     </div>
                   </div>
                 </div>
@@ -168,16 +137,19 @@
             </article>
           </section>
           <aside id="spotify_wrapper" class="col">
-            <iframe id="embedded_player" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/5g4EfjNXn80wo0hO4SYtC7?utm_source=generator" width="100%" height="600" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <iframe id="embedded_player" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/5QjgJ20xSbkyfDY2iPERtz?utm_source=generator" width="100%" height="600" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
           </aside>
         </div>
       </div>
     </main>
+
     <footer>
-        <p class="container">© Samuel Lundman, Arissa Rakluea, Johnny Rosenquist</p>
-      </footer>
+      <p class="container">© Samuel Lundman, Arissa Rakluea, Johnny Rosenquist</p>
+    </footer>
 
     <script src="/static/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  </body>
+  
+<span style="border-radius:10px !important;text-indent:12px !important;width:auto !important;height:20px !important;padding:0px 8px !important;text-align:center !important;vertical-align:middle !important;font:bold 11px / 20px &quot;Helvetica Neue&quot;, Helvetica, sans-serif !important;color:rgb(255, 255, 255) !important;background:url(&quot;data:image/svg+xml;base64,PHN2ZyBpZD0ic291cmNlIiB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxMiAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNiIgY3k9IjYiIHI9IjYiIGZpbGw9IiNFNjAwMjMiPjwvY2lyY2xlPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTAgNkMwIDguNTYxNSAxLjYwNTUgMTAuNzQ4NSAzLjg2NSAxMS42MDlDMy44MSAxMS4xNDA1IDMuNzUxNSAxMC4zNjggMy44Nzc1IDkuODI2QzMuOTg2IDkuMzYgNC41NzggNi44NTcgNC41NzggNi44NTdDNC41NzggNi44NTcgNC4zOTk1IDYuNDk5NSA0LjM5OTUgNS45N0M0LjM5OTUgNS4xNCA0Ljg4MDUgNC41MiA1LjQ4IDQuNTJDNS45OSA0LjUyIDYuMjM2IDQuOTAyNSA2LjIzNiA1LjM2MUM2LjIzNiA1Ljg3MzUgNS45MDk1IDYuNjM5NSA1Ljc0MSA3LjM1QzUuNjAwNSA3Ljk0NDUgNi4wMzk1IDguNDI5NSA2LjYyNTUgOC40Mjk1QzcuNjg3IDguNDI5NSA4LjUwMzUgNy4zMSA4LjUwMzUgNS42OTRDOC41MDM1IDQuMjYzNSA3LjQ3NTUgMy4yNjQgNi4wMDggMy4yNjRDNC4zMDkgMy4yNjQgMy4zMTE1IDQuNTM4NSAzLjMxMTUgNS44NTZDMy4zMTE1IDYuMzY5NSAzLjUwOSA2LjkxOTUgMy43NTYgNy4yMTlDMy44MDQ1IDcuMjc4NSAzLjgxMiA3LjMzIDMuNzk3NSA3LjM5MDVDMy43NTIgNy41Nzk1IDMuNjUxIDcuOTg1IDMuNjMxNSA4LjA2OEMzLjYwNSA4LjE3NyAzLjU0NSA4LjIwMDUgMy40MzE1IDguMTQ3NUMyLjY4NTUgNy44MDA1IDIuMjE5NSA2LjcxIDIuMjE5NSA1LjgzNEMyLjIxOTUgMy45NDk1IDMuNTg4IDIuMjE5NSA2LjE2NTUgMi4yMTk1QzguMjM3NSAyLjIxOTUgOS44NDggMy42OTYgOS44NDggNS42NjlDOS44NDggNy43Mjc1IDguNTUwNSA5LjM4NDUgNi43NDg1IDkuMzg0NUM2LjE0MyA5LjM4NDUgNS41NzQ1IDkuMDY5NSA1LjM3OTUgOC42OThDNS4zNzk1IDguNjk4IDUuMDggOS44MzkgNS4wMDc1IDEwLjExOEM0Ljg2NjUgMTAuNjYgNC40NzU1IDExLjM0NiA0LjIzMyAxMS43MzU1QzQuNzkyIDExLjkwNzUgNS4zODUgMTIgNiAxMkM5LjMxMzUgMTIgMTIgOS4zMTM1IDEyIDZDMTIgMi42ODY1IDkuMzEzNSAwIDYgMEMyLjY4NjUgMCAwIDIuNjg2NSAwIDZaIiBmaWxsPSJ3aGl0ZSI+PC9wYXRoPgo8L3N2Zz4=&quot;) 4px 50% / 12px 12px no-repeat rgb(230, 0, 35) !important;position:absolute !important;opacity:1 !important;z-index:9007199254740990 !important;display:none !important;cursor:pointer !important;border:none !important;-webkit-font-smoothing:antialiased !important;top:0 !important;left:0 !important;display:none !important;top:1145px !important;left:776px !important">Save</span>
+</body>
 </html>

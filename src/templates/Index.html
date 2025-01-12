@@ -9,28 +9,27 @@
   </head>
 
   <body>
-    
-      <nav class="navbar bg-dark border-body" data-bs-theme="dark">
-        <div class="container-lg">
-          <a class="navbar-brand" href="Index.html">Dinify</a>
-        </div>
-      </nav>
+    <nav class="navbar bg-dark border-body" data-bs-theme="dark">
+      <div class="container-lg">
+        <a class="navbar-brand" href="Index.html">Dinify</a>
+      </div>
+    </nav>
     <header class="container-lg">
       <div id="hero">
         <div class="card">
           <div class="card-body">
             <h1>Cuisine and tunes, perfectly paired!</h1>
-            <p>Pick your preferred cuisine and Dinify will create a complete dining experience, a starter, main course, <br> dessert and a playlist to match the mood.</p>
+            <p>
+              Pick your preferred cuisine and Dinify will create a complete dining experience, a starter, main course, <br /> dessert and a playlist to match the mood.
+            </p>
           </div>
         </div>
-        
-        
       </div>
     </header>
 
     <main>
       <section id="cuisine_generator">
-        <h2 id="title_cuisine_generator">What do you feel like today?</h2>
+        <h2 id="title_cuisine_generator">What would you feel like today?</h2>
 
         <form id="generate_this_cuisine" name="generate_this_cuisine">
           <div id="search_generator">
@@ -66,13 +65,6 @@
             </select>
             <button type="button" id="generator_btn" class="btn btn-success">Enter</button>
           </div>
-
-          <!--      
-          <dialog>
-            <h4>You chose ######. Please confirm to generate recipes and playlist.</h4>
-            <button type="button" id="cancelbtn">Cancel</button>
-            <button type="button" id="enterbtn">Okay</button>
-          </dialog>       -->
         </form>
       </section>
 
@@ -80,7 +72,9 @@
 
       <!-- _____________________________________________Start generated content_____________________________________________ -->
 
-      <div class="container">
+      <div id="generated_content" class="container">
+        <h2 id="title_generated">Cuisine and tunes</h2>
+
         <div class="row align-items-start">
           <section id="local_nav_wrapper" class="col">
             <nav id="local_nav_col">
@@ -98,9 +92,9 @@
                   <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                       <article id="course_starter" class="course">
-                        <div id="starter_header">Title, url, course, servings, readyInMinutes</div>
+                        <div id="starter_header">Title url course servings readyInMinutes</div>
                         <img src="" alt="starter" id="starter_img" />
-                        <div id="starter_ingredients">
+                        <div id="starter_ingredients" class="instructions">
                           <h4 class="cuisine_subheading">Ingredients</h4>
                         </div>
                         <div id="starter_instructions">
@@ -122,11 +116,9 @@
                         <div id="main_header">Title, url, course, servings, readyInMinutes</div>
                         <img src="" alt="main" id="main_img" />
                         <div id="main_ingredients">"ingredients":</div>
-                        <div id="main_instructions">instructions</div>
+                        <div id="main_instructions" class="instructions">instructions</div>
                         <div id="main_summary">summary</div>
                       </article>
-
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, voluptates. Veniam voluptates est odio sequi ipsam, et dolor blanditiis numquam expedita sint beatae repudiandae delectus, alias nobis dignissimos deleniti totam.</p>
                     </div>
                   </div>
                 </div>
@@ -141,11 +133,9 @@
                         </div>
                         <img src="" alt="dessert" id="dessert_img" />
                         <div id="dessert_ingredients">ingredients</div>
-                        <div id="dessert_instructions">instructions</div>
+                        <div id="dessert_instructions" class="instructions">instructions</div>
                         <div id="dessert_summary">summary</div>
                       </article>
-
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, voluptates. Veniam voluptates est odio sequi ipsam, et dolor blanditiis numquam expedita sint beatae repudiandae delectus, alias nobis dignissimos deleniti totam.</p>
                     </div>
                   </div>
                 </div>
