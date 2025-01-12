@@ -121,12 +121,9 @@ div#generated_content.container{
 
 #title_generated {
     margin-bottom: 1rem;
+    color: #434942;;
 }
 
-h3 {
-    font-size: 1.2rem;
-    font-weight: normal;
-}
 
 .accordion-button:not(.collapsed) {
     background-color: transparent;
@@ -175,7 +172,7 @@ footer{
     position: fixed;
     bottom: 0;
     height: 3.5rem;
-    background: #842630;
+    background: #7d4147;
     color: white;
     text-align: center;
     flex: auto;
