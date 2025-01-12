@@ -1,7 +1,7 @@
 document.getElementById("generator_btn").addEventListener('click', generatorBtn);
 
 /**
- * Validation when user pressed the button "Enter" and sends request to backend
+ * Validation when user pressed the button "Enter", sends request to backend and calls functions to display the content returned from requests made.
  * @returns {Promise<void>}
  */
 async function generatorBtn() {
@@ -59,7 +59,7 @@ async function fetchRecipes(cuisine) {
 /**
  * Sends request to the backend to get a playlist ID
  * @param cuisine Query the request will be based on
- * @returns {Promise<any>} JSON object containing the id as a string
+ * @returns JSON object containing the id as a string
  */
 async function fetchId(cuisine) {
     const header = new Headers();
