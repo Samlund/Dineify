@@ -142,7 +142,7 @@ function generateCourse(courseDiv, recipe) {
     }
 
     if (ingredients) {
-        ingredients.innerHTML = `<h4>Ingredients</h4>${recipe.ingredients.map(ing => `${ing.amount} ${ing.unit} ${ing.name}`).join('<br>')}`;
+        ingredients.innerHTML = `<h4>Ingredients</h4> <ul>${recipe.ingredients.map(ing => `<li>${ing.amount} ${ing.unit} ${ing.name} </li>`).join(' ')}</ul>`;
     } else {
         console.warn(`${recipe.course}_ingredients was not found.`);
     }
