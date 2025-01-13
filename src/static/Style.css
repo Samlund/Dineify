@@ -1,5 +1,6 @@
 body {
     background-color: #f0eae4;
+    min-width: 550px;
 }
 
 a {
@@ -125,7 +126,6 @@ div#generated_content.container{
     color: #434942;;
 }
 
-
 .accordion-button:not(.collapsed) {
     background-color: transparent;
 }
@@ -184,3 +184,21 @@ p.container{
     padding-top: 1.2rem;
 }
 
+@media screen and (max-width: 990px) {
+    .col {
+        flex: none; 
+    }
+
+    #spotify_wrapper {
+        margin-top: 1rem;
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    img {
+        max-width: 100%;
+    }
+
+
+}
