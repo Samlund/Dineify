@@ -27,8 +27,12 @@ app.add_middleware(
 
 @app.get("/",response_class=HTMLResponse)
 async def index(request: Request):
+    """
+    Handles the request for the root endpoint and renders the template "index.html" in to it.
+    :param request: HTTP request object
+    :return: index page from "index.html"
+    """
     return templates.TemplateResponse("index.html", {"request": request})
-
 
 async def fetch_recipe(cuisine: str, course_type: str):
     """
@@ -136,8 +140,7 @@ async def set_token():
     user = spotify_id +":" + secret
     user_bytes = base64.b64encode(user.encode('utf-8'))
     user_string = user_bytes.decode('utf-8')
-    header = {"Authorization" : "Basic " + user_string
-              ,"Content-Type" : "application/x-www-form-urlencoded"}
+    header = {"Authorization" : "Basic " + user_string,"Content-Type" : "application/x-www-form-urlencoded"}
     body = {"grant_type": "client_credentials"}
     token_url = "https://accounts.spotify.com/api/token"
     async with httpx.AsyncClient() as client:
