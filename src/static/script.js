@@ -123,7 +123,8 @@ function generateCourse(courseDiv, recipe) {
     const summary = courseDiv.querySelector(`#${recipe.course}_summary`);
 
     if (accordionHeader) {
-        accordionHeader.innerHTML = `${accordionHeader.textContent.trim()} ${recipe.title}`;
+        accordionHeader.innerHTML = "";
+        accordionHeader.innerHTML = `${recipe.course.charAt(0).toUpperCase() + recipe.course.slice(1)}: ${accordionHeader.textContent.trim()} ${recipe.title}`;
     } else {
         console.warn(`${recipe.course} was not found.`);
     }

@@ -162,7 +162,8 @@ async def get_playlist_id(theme : str):
         option_list = []
         for i in range(response_dict.__len__()):
             if response_dict[i] is not None:
-                option_list.append(i)
+                if response_dict[i]["tracks"]["total"] > 10:
+                    option_list.append(i)
         index = random.choice(option_list)
         if not option_list:
             return None
