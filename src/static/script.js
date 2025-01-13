@@ -12,10 +12,16 @@ async function generatorBtn() {
             alert('Please select cuisine.');
             return;
         }
+
+        var hideContent = document.getElementById("generated_content");
+        hideContent.style.display = "none";
+
         const recipes = await fetchRecipes(selectedCuisine);
         const id = await fetchId(selectedCuisine);
         displayRecipe(recipes.menu);
         displayPlaylist(id);
+
+        hideContent.style.display = "block";
 
     } catch (error) {
         console.error("Error fetching recipes:", error);
@@ -109,14 +115,22 @@ function displayPlaylist(id) {
  * @param recipe recipe to be added to the element
  */
 function generateCourse(courseDiv, recipe) {
+    const accordionHeader = courseDiv.closest(".accordion-item").querySelector(".accordion-header button");
     const header = courseDiv.querySelector(`#${recipe.course}_header`);
     const img = courseDiv.querySelector(`#${recipe.course}_img`);
     const ingredients = courseDiv.querySelector(`#${recipe.course}_ingredients`);
     const instructions = courseDiv.querySelector(`#${recipe.course}_instructions`);
     const summary = courseDiv.querySelector(`#${recipe.course}_summary`);
 
+    if (accordionHeader) {
+        accordionHeader.innerHTML = "";
+        accordionHeader.innerHTML = `${recipe.course.charAt(0).toUpperCase() + recipe.course.slice(1)}: ${accordionHeader.textContent.trim()} ${recipe.title}`;
+    } else {
+        console.warn(`${recipe.course} was not found.`);
+    }
+
     if (header) {
-        header.innerText = `Title: ${recipe.title}, URL: ${recipe.url}, Course: ${recipe.course}, Servings: ${recipe.servings}, Ready In: ${recipe.readyInMinutes} minutes`;
+        header.innerHTML = `Course: ${recipe.course} <br> Servings: ${recipe.servings} <br> Ready in: ${recipe.readyInMinutes} minutes <br> URL: <a href="${recipe.url}">${recipe.url}</a>`;
     } else {
         console.warn(`${recipe.course}_header was not found.`);
     }
@@ -129,19 +143,19 @@ function generateCourse(courseDiv, recipe) {
     }
 
     if (ingredients) {
-        ingredients.innerText = `Ingredients: ${recipe.ingredients.map(ing => `${ing.name} (${ing.amount} ${ing.unit})`).join(', ')}`;
+        ingredients.innerHTML = `<h4>Ingredients</h4> <ul>${recipe.ingredients.map(ing => `<li>${ing.amount} ${ing.unit} ${ing.name} </li>`).join(' ')}</ul>`;
     } else {
         console.warn(`${recipe.course}_ingredients was not found.`);
     }
 
     if (instructions) {
-        instructions.innerHTML = `Instructions: ${recipe.instructions}`;
+        instructions.innerHTML = `<h4>Instructions</h4>${recipe.instructions}`;
     } else {
         console.warn(`${recipe.course}_instructions was not found.`);
     }
 
     if (summary) {
-        summary.innerHTML = `Summary: ${recipe.summary}`;
+        summary.innerHTML = `<h4>Summary</h4>${recipe.summary}`;
     } else {
         console.warn(`${recipe.course}_summary was not found.`);
     }

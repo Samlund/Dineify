@@ -1,6 +1,62 @@
+body {
+    background-color: #f0eae4;
+}
+
+a {
+    text-decoration: none;
+}
+
+h4 {
+    margin: 0 !important;
+}
+
+li::marker {
+    color: #BB6647;
+}
+
+nav.navbar.bg-dark.border-body {
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 32%), 0 6px 20px 0 rgb(0 0 0 / 37%);
+}
+
+header.container-lg {
+    --bs-gutter-x: none;
+}
+
+#hero {
+    background-image: url(/static/images/cuisine_header.jpeg);
+    height: 600px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-size: 1700px;
+    margin: auto;
+}
+
+div.card {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(51,51,51,0) 0%, rgba(19,19,19,0.9276960784313726) 55%);
+    color: white;
+    opacity: 95%;
+}
+
+div.card-body {
+    margin: auto;
+    margin-top: 24rem;
+    flex: none;
+}
+
+select.form-select {
+    color: #5c5c5c;
+    font-size: 1.2rem;
+    background-size: 20px 22px;
+}
+
 main {
     margin: auto;
     padding: 1.75rem;
+    padding-top: 1rem;
+    padding-bottom: 7rem;
     max-width: 1320px;
 }
 
@@ -10,6 +66,7 @@ main {
 }
 
 #title_cuisine_generator {
+    color: #565e54;
     padding-bottom: 1rem;
 }
 
@@ -24,9 +81,23 @@ select.form-select {
 }
 
 #generator_btn {
+    background-color: #BB6647;
+    color: white;
+    --bs-btn-border-color: none;
     border-radius: 0;
     border-top-right-radius: 0.33rem;
     border-bottom-right-radius: 0.33rem;
+}
+
+#generator_btn:hover {
+    background-color: #80442e;
+    color: white;
+}
+
+#generator_btn:active {
+    background-color: #80442e;
+    color: white;
+    transform: translateY(2px);
 }
 
 input#exampleDataList.form-select {
@@ -35,78 +106,81 @@ input#exampleDataList.form-select {
     border-bottom-left-radius: 0.33rem;
 }
 
-/*--------------------start drop down btn------------- */
-.dropbtn {
-    background-color: gray;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
+hr {
+    border: 1.2px solid #574032;
+    opacity: .7;
 }
 
-.dropbtn:hover, .dropbtn:focus {
-    background-color: rgb(48, 48, 48);
-}
-
-#myInput {
-    box-sizing: border-box;
-    background-image: url('searchicon.png');
-    background-position: 14px 12px;
-    background-repeat: no-repeat;
-    font-size: 16px;
-    padding: 14px 20px 12px 45px;
-    border: none;
-    border-bottom: 1px solid #ddd;
-}
-
-#myInput:focus {outline: 3px solid #ddd;}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
+#generated_content {
     display: none;
-    position: absolute;
-    background-color: #f6f6f6;
-    min-width: 230px;
-    overflow: auto;
-    border: 1px solid #ddd;
-    z-index: 1;
-    text-align: left;
+    margin-top: 2.3rem;
 }
 
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
+div#generated_content.container{
+    margin-top: 0;
 }
 
-.dropdown a:hover {
-    background-color: #ddd;
+#title_generated {
+    margin-bottom: 1rem;
+    color: #434942;;
 }
 
-.show {
-    display: block;
+
+.accordion-button:not(.collapsed) {
+    background-color: transparent;
 }
 
-/*--------------------end drop down btn------------- */
-
-#local_nav_wrapper {
-    display: flex;
+.accordion{
+    --bs-accordion-bg: none;
+    --bs-accordion-border-color: none;
+    --bs-accordion-btn-focus-box-shadow: none;
 }
 
-#local_nav_col {
-    padding-right: 1.7rem;
+h2.accordion-header {
+    background-color: #737d66;
 }
 
-.local_nav_link {
-    display: flex;
+button.accordion-button {
+    font-size: 1.2rem;
+    color: #f0eae4;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #4f5546;
+    color: #f0eae4;
+}
+
+div#starter_header, div#main_header, div#dessert_header {
+    margin-bottom: 1rem;
+}
+
+img{
+    display: block; 
+    margin: auto;
+    margin-bottom: 0.7rem;
+
+}
+
+.instructions, .summary {
+    margin-top: 1rem;
 }
 
 aside.col {
     max-width: 35%;
 }
+
+footer{
+    position: fixed;
+    bottom: 0;
+    height: 3.5rem;
+    background: #7d4147;
+    color: white;
+    text-align: center;
+    flex: auto;
+    width: 100%;
+}
+
+p.container{
+    padding-top: 1.2rem;
+}
+
